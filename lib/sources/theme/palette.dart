@@ -14,6 +14,10 @@ class PaletteTheme {
   final Color surface;
   final Color onSurface;
   final Color primaryTextColor;
+  final Color inputColor;
+  final Color iconColor;
+  final Color unfocusIconColor;
+  final Color baseStrengthIndicator;
 
   PaletteTheme({
     required this.primary,
@@ -29,6 +33,10 @@ class PaletteTheme {
     required this.surface,
     required this.onSurface,
     required this.primaryTextColor,
+    required this.inputColor,
+    required this.iconColor,
+    required this.unfocusIconColor,
+    required this.baseStrengthIndicator,
   });
 }
 
@@ -55,6 +63,10 @@ class Palette {
     surface: const Color(0xff383C43),
     onSurface: Colors.white,
     primaryTextColor: Colors.white,
+    inputColor: const Color(0xff151922),
+    iconColor: Colors.white70,
+    unfocusIconColor: const Color(0xff6a6d72),
+    baseStrengthIndicator: Colors.white,
   );
 
   static final light = PaletteTheme(
@@ -71,5 +83,9 @@ class Palette {
     surface: const Color(0xffEBEFF5),
     onSurface: Colors.black87,
     primaryTextColor: Colors.black87,
+    inputColor: const Color(0xffEBEFF5),
+    iconColor: Colors.black87,
+    unfocusIconColor: const Color(0xffCED5DF),
+    baseStrengthIndicator: const Color(0xffC6CDD9),
   );
 }

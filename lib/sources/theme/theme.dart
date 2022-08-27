@@ -23,7 +23,9 @@ class AppTheme {
       checkboxTheme: _checkBoxTheme(palette: Palette.dark),
       drawerTheme: _drawerTheme(palette: Palette.dark),
       progressIndicatorTheme: _progressIndicatorTheme(palette: Palette.dark),
-      primaryTextTheme: _primaryTextTheme(palette: Palette.dark),
+      textTheme: _textTheme(palette: Palette.dark),
+      elevatedButtonTheme: _elevatedButtonTheme(palette: Palette.dark),
+      inputDecorationTheme: _inputDecorationTheme(palette: Palette.dark),
     );
   }
 
@@ -45,7 +47,9 @@ class AppTheme {
       checkboxTheme: _checkBoxTheme(palette: Palette.light),
       drawerTheme: _drawerTheme(palette: Palette.light),
       progressIndicatorTheme: _progressIndicatorTheme(palette: Palette.light),
-      primaryTextTheme: _primaryTextTheme(palette: Palette.light),
+      textTheme: _textTheme(palette: Palette.light),
+      elevatedButtonTheme: _elevatedButtonTheme(palette: Palette.light),
+      inputDecorationTheme: _inputDecorationTheme(palette: Palette.light),
     );
   }
 
@@ -103,10 +107,70 @@ class AppTheme {
     );
   }
 
-  static TextTheme _primaryTextTheme({required PaletteTheme palette}) {
-    return const TextTheme().apply(
-      displayColor: palette.secondary,
-      bodyColor: palette.secondary,
+  // font size guide: https://bit.ly/3CnTxJ8
+  static TextTheme _textTheme({required PaletteTheme palette}) {
+    return TextTheme(
+      displayLarge: GoogleFonts.lato(color: palette.primaryTextColor),
+      displayMedium: GoogleFonts.lato(color: palette.primaryTextColor),
+      displaySmall: GoogleFonts.lato(color: palette.primaryTextColor),
+      headlineLarge: GoogleFonts.lato(
+        color: palette.primaryTextColor,
+        fontSize: 32,
+      ),
+      headlineMedium: GoogleFonts.lato(color: palette.primaryTextColor),
+      headlineSmall: GoogleFonts.lato(color: palette.primaryTextColor),
+      titleLarge: GoogleFonts.lato(color: palette.primaryTextColor),
+      titleMedium: GoogleFonts.lato(color: palette.primaryTextColor),
+      titleSmall: GoogleFonts.lato(color: palette.primaryTextColor),
+      labelLarge: GoogleFonts.lato(color: palette.primaryTextColor),
+      labelMedium: GoogleFonts.lato(color: palette.primaryTextColor),
+      labelSmall: GoogleFonts.lato(color: palette.primaryTextColor),
+      bodyLarge: GoogleFonts.lato(color: palette.primaryTextColor),
+      bodyMedium: GoogleFonts.lato(color: palette.primaryTextColor),
+      bodySmall: GoogleFonts.lato(color: palette.primaryTextColor),
+    );
+  }
+
+  static ElevatedButtonThemeData _elevatedButtonTheme({
+    required PaletteTheme palette,
+  }) {
+    return ElevatedButtonThemeData(
+      style: ButtonStyle(
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(25)),
+          ),
+        ),
+        backgroundColor: MaterialStateProperty.all<Color>(palette.secondary),
+        shadowColor: MaterialStateProperty.all<Color>(palette.secondary),
+      ),
+    );
+  }
+
+  static InputDecorationTheme _inputDecorationTheme({
+    required PaletteTheme palette,
+  }) {
+    return InputDecorationTheme(
+      fillColor: palette.inputColor,
+      filled: true,
+      enabledBorder: const OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(5)),
+        borderSide: BorderSide.none,
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: const BorderRadius.all(Radius.circular(5)),
+        borderSide: BorderSide(
+          color: palette.primaryAccent,
+          width: 2,
+        ),
+      ),
+      suffixIconColor: MaterialStateColor.resolveWith((states) {
+        if (states.contains(MaterialState.focused)) {
+          return palette.iconColor;
+        } else {
+          return palette.unfocusIconColor;
+        }
+      }),
     );
   }
 }
