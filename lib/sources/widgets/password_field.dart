@@ -5,10 +5,14 @@ import 'strength_indicator.dart';
 class PasswordField extends StatefulWidget {
   final String? hintText;
   final bool? strengthIndicatorVisible;
+  final TextEditingController controller;
+  final String? Function(String?)? validator;
 
   const PasswordField({
     Key? key,
     this.hintText,
+    required this.controller,
+    this.validator,
     this.strengthIndicatorVisible = false,
   }) : super(key: key);
 
@@ -18,28 +22,22 @@ class PasswordField extends StatefulWidget {
 
 class _PasswordFieldState extends State<PasswordField> {
   bool _obscureText = true;
-  final TextEditingController _controller = TextEditingController();
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
 
   @override
   void initState() {
     super.initState();
     if (widget.strengthIndicatorVisible == true) {
-      _controller.addListener(() => setState(() {}));
+      widget.controller.addListener(() => setState(() {}));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        TextField(
-          controller: _controller,
+        TextFormField(
+          controller: widget.controller,
+          validator: widget.validator,
           obscureText: _obscureText,
           autocorrect: false,
           decoration: InputDecoration(
@@ -57,14 +55,15 @@ class _PasswordFieldState extends State<PasswordField> {
           ),
         ),
         if ((widget.strengthIndicatorVisible ?? false) == true)
-          const SizedBox(height: 4),
-        if ((widget.strengthIndicatorVisible ?? false) == true)
-          StrenghtIndicator(
-            password: _controller.text,
-            baseColor: Theme.of(context).brightness == Brightness.dark
-                ? Palette.dark.baseStrengthIndicator
-                : Palette.light.baseStrengthIndicator,
-            spaceBetween: 8,
+          Padding(
+            padding: const EdgeInsets.only(top: 55),
+            child: StrenghtIndicator(
+              password: widget.controller.text,
+              baseColor: Theme.of(context).brightness == Brightness.dark
+                  ? Palette.dark.baseStrengthIndicator
+                  : Palette.light.baseStrengthIndicator,
+              spaceBetween: 8,
+            ),
           ),
       ],
     );

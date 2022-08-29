@@ -164,6 +164,13 @@ class AppTheme {
           width: 2,
         ),
       ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: const BorderRadius.all(Radius.circular(5)),
+        borderSide: BorderSide(
+          color: palette.error.withOpacity(0.60),
+        ),
+      ),
+      border: const OutlineInputBorder(),
       suffixIconColor: MaterialStateColor.resolveWith((states) {
         if (states.contains(MaterialState.focused)) {
           return palette.iconColor;

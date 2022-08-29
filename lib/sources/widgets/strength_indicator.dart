@@ -48,7 +48,7 @@ class _StrenghtIndicatorState extends State<StrenghtIndicator> {
           Expanded(
             child: AnimatedContainer(
               height: 3,
-              duration: const Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 150),
               curve: Curves.easeOutCubic,
               decoration: BoxDecoration(
                 color: _colorState(
@@ -65,7 +65,7 @@ class _StrenghtIndicatorState extends State<StrenghtIndicator> {
           Expanded(
             child: AnimatedContainer(
               height: 3,
-              duration: const Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 150),
               curve: Curves.easeOutCubic,
               decoration: BoxDecoration(
                 color: _colorState(
@@ -82,7 +82,7 @@ class _StrenghtIndicatorState extends State<StrenghtIndicator> {
           Expanded(
             child: AnimatedContainer(
               height: 3,
-              duration: const Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 150),
               curve: Curves.easeOutCubic,
               decoration: BoxDecoration(
                 color: _colorState(
@@ -99,7 +99,7 @@ class _StrenghtIndicatorState extends State<StrenghtIndicator> {
           Expanded(
             child: AnimatedContainer(
               height: 3,
-              duration: const Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 150),
               curve: Curves.easeOutCubic,
               decoration: BoxDecoration(
                 color: _colorState(
