@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:password_manager/sources/services/master_password/add_master_password.dart';
+import 'package:password_strength/password_strength.dart';
 
 import '../widgets/password_field.dart';
 
-class CreateMasterPassword extends StatefulWidget {
-  const CreateMasterPassword({Key? key}) : super(key: key);
+class CreateMasterPasswordPage extends StatefulWidget {
+  const CreateMasterPasswordPage({Key? key}) : super(key: key);
 
   @override
-  State<CreateMasterPassword> createState() => _CreateMasterPasswordState();
+  State<CreateMasterPasswordPage> createState() =>
+      _CreateMasterPasswordPageState();
 }
 
-class _CreateMasterPasswordState extends State<CreateMasterPassword> {
-  final formKey = GlobalKey<FormState>();
+class _CreateMasterPasswordPageState extends State<CreateMasterPasswordPage> {
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmController = TextEditingController();
 
@@ -25,10 +28,10 @@ class _CreateMasterPasswordState extends State<CreateMasterPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Form(
-          key: formKey,
-          child: ConstrainedBox(
-            constraints: const BoxConstraints.tightFor(width: 352, height: 467),
+        child: ConstrainedBox(
+          constraints: const BoxConstraints.tightFor(width: 352, height: 467),
+          child: Form(
+            key: _formKey,
             child: Column(
               children: [
                 const Image(image: AssetImage("key.png"), width: 80),
@@ -53,6 +56,10 @@ class _CreateMasterPasswordState extends State<CreateMasterPassword> {
                     if (value!.isEmpty) {
                       return "Field can't be empty";
                     }
+                    if (estimatePasswordStrength(passwordController.text) <
+                        0.5) {
+                      return "Password is too weak";
+                    }
                     return null;
                   },
                 ),
@@ -64,7 +71,7 @@ class _CreateMasterPasswordState extends State<CreateMasterPassword> {
                     if (value!.isEmpty) {
                       return "Field can't be empty";
                     } else if (value != passwordController.text) {
-                      return "Passwords are not similar.";
+                      return "Passwords are not similar";
                     }
                     return null;
                   },
@@ -75,11 +82,12 @@ class _CreateMasterPasswordState extends State<CreateMasterPassword> {
                   height: 52,
                   child: ElevatedButton(
                     onPressed: () {
-                      if (formKey.currentState!.validate()) {}
+                      if (_formKey.currentState!.validate()) {
+                        addMasterPassword(passwordController.text);
+                      }
                     },
                     child: const Text(
                       "Continue",
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 )

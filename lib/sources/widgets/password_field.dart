@@ -53,6 +53,7 @@ class _PasswordFieldState extends State<PasswordField> {
               padding: const EdgeInsets.only(right: 8),
             ),
           ),
+          keyboardType: TextInputType.visiblePassword,
         ),
         if ((widget.strengthIndicatorVisible ?? false) == true)
           Padding(
