@@ -1,16 +1,18 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:password_manager/sources/services/master_password/check_master_password.dart';
+import 'package:password_manager/sources/routes/router.gr.dart';
 
 import '../widgets/password_field.dart';
+import '../services/sign_up/check_master_password.service.dart';
 
-class UnlockPage extends StatefulWidget {
-  const UnlockPage({Key? key}) : super(key: key);
+class SignInPage extends StatefulWidget {
+  const SignInPage({Key? key}) : super(key: key);
 
   @override
-  State<UnlockPage> createState() => _UnlockPageState();
+  State<SignInPage> createState() => _SignInPageState();
 }
 
-class _UnlockPageState extends State<UnlockPage> {
+class _SignInPageState extends State<SignInPage> {
   String? _validatorValue;
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _passwordController = TextEditingController();
@@ -66,7 +68,9 @@ class _UnlockPageState extends State<UnlockPage> {
                 child: ElevatedButton(
                   child: const Text("Unlock Manager"),
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {}
+                    if (_formKey.currentState!.validate()) {
+                      context.router.push(const DashboardRouter());
+                    }
                   },
                 ),
               ),

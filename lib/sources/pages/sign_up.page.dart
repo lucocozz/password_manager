@@ -1,18 +1,19 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:password_manager/sources/services/master_password/add_master_password.dart';
+import 'package:password_manager/sources/routes/router.gr.dart';
 import 'package:password_strength/password_strength.dart';
 
 import '../widgets/password_field.dart';
+import '../services/sign_up/add_master_password.service.dart';
 
-class CreateMasterPasswordPage extends StatefulWidget {
-  const CreateMasterPasswordPage({Key? key}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
-  State<CreateMasterPasswordPage> createState() =>
-      _CreateMasterPasswordPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _CreateMasterPasswordPageState extends State<CreateMasterPasswordPage> {
+class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmController = TextEditingController();
@@ -84,6 +85,7 @@ class _CreateMasterPasswordPageState extends State<CreateMasterPasswordPage> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         addMasterPassword(passwordController.text);
+                        context.router.push(const DashboardRouter());
                       }
                     },
                     child: const Text(
