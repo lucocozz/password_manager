@@ -34,9 +34,11 @@ dependencies:
   encrypt: ^5.0.1
   flutter:
     sdk: flutter
+  flutter_hooks: ^0.18.5+1
   google_fonts: ^3.0.1
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  hooks_riverpod: ^1.0.4
   password_strength: ^0.2.0
   responsive_framework: ^0.2.0
   shared_preferences: ^2.0.15

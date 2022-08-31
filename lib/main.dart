@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:password_manager/sources/routes/guards/is_sign_up.guard.dart';
 import 'package:password_manager/sources/routes/router.gr.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -12,7 +13,7 @@ import 'sources/theme/theme.dart';
 void main() async {
   await Hive.initFlutter();
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

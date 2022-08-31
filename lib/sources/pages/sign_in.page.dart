@@ -1,18 +1,21 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:password_manager/sources/routes/router.gr.dart';
+import 'package:password_manager/sources/services/crypto/hash_md5.dart';
 
-import '../widgets/password_field.dart';
+import '../models/providers.model.dart';
+import '../widgets/password_field.widget.dart';
 import '../services/sign_up/check_master_password.service.dart';
 
-class SignInPage extends StatefulWidget {
+class SignInPage extends StatefulHookConsumerWidget {
   const SignInPage({Key? key}) : super(key: key);
 
   @override
-  State<SignInPage> createState() => _SignInPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _SignInPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignInPageState extends ConsumerState<SignInPage> {
   String? _validatorValue;
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _passwordController = TextEditingController();
@@ -69,6 +72,8 @@ class _SignInPageState extends State<SignInPage> {
                   child: const Text("Unlock Manager"),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
+                      ref.read(masterPasswordProvider.notifier).state =
+                          hashMD5(_passwordController.text);
                       context.router.push(const DashboardRouter());
                     }
                   },

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:password_manager/sources/theme/palette.dart';
-import 'strength_indicator.dart';
+import 'strength_indicator.widget.dart';
 
 class PasswordField extends StatefulWidget {
   final String? hintText;
