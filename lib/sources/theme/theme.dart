@@ -26,6 +26,8 @@ class AppTheme {
       textTheme: _textTheme(palette: Palette.dark),
       elevatedButtonTheme: _elevatedButtonTheme(palette: Palette.dark),
       inputDecorationTheme: _inputDecorationTheme(palette: Palette.dark),
+      iconTheme: _iconTheme(palette: Palette.dark),
+      appBarTheme: _appBarTheme(palette: Palette.dark),
     );
   }
 
@@ -50,6 +52,8 @@ class AppTheme {
       textTheme: _textTheme(palette: Palette.light),
       elevatedButtonTheme: _elevatedButtonTheme(palette: Palette.light),
       inputDecorationTheme: _inputDecorationTheme(palette: Palette.light),
+      iconTheme: _iconTheme(palette: Palette.light),
+      appBarTheme: _appBarTheme(palette: Palette.light),
     );
   }
 
@@ -178,6 +182,20 @@ class AppTheme {
           return palette.unfocusIconColor;
         }
       }),
+    );
+  }
+
+  static IconThemeData _iconTheme({required PaletteTheme palette}) {
+    return IconThemeData(
+      color: palette.iconColor,
+    );
+  }
+
+  static AppBarTheme _appBarTheme({required PaletteTheme palette}) {
+    return AppBarTheme(
+      color: palette.primaryShade,
+      elevation: 0,
+      iconTheme: _iconTheme(palette: palette),
     );
   }
 }
