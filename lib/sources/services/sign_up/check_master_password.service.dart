@@ -1,16 +1,17 @@
+import 'package:dargon2_flutter/dargon2_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../crypto/decrypt_aes.dart';
-import '../crypto/hash_md5.dart';
 
 Future<bool> checkMasterPassword(String password) async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
-  final String? encrypted = prefs.getString('masterPasswordIndice');
+  final String? hash = prefs.getString('masterPassword');
 
-  if (encrypted == null) {
+  if (hash == null) {
     return false;
-  } else {
-    String decrypted = decryptAES(hashMD5(password), encrypted);
-    return decrypted == "masterPasswordIndice";
+  }
+  try {
+    final verify = await argon2.verifyHashString(password, hash);
+    return verify;
+  } catch (error) {
+    return false;
   }
 }

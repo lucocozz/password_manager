@@ -1,3 +1,4 @@
+import 'package:dargon2_flutter/dargon2_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -12,6 +13,7 @@ import 'sources/theme/theme.dart';
 
 void main() async {
   await Hive.initFlutter();
+  DArgon2Flutter.init();
   WidgetsFlutterBinding.ensureInitialized();
   runApp(ProviderScope(child: MyApp()));
 }
@@ -43,7 +45,7 @@ class MyApp extends StatelessWidget {
           breakpoints: const [
             ResponsiveBreakpoint.resize(350, name: MOBILE),
             ResponsiveBreakpoint.autoScale(600, name: TABLET),
-            ResponsiveBreakpoint.resize(800, name: DESKTOP),
+            ResponsiveBreakpoint.resize(900, name: DESKTOP),
             ResponsiveBreakpoint.autoScale(1700, name: 'XL'),
           ],
         ),

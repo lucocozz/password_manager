@@ -28,6 +28,7 @@ class AppTheme {
       inputDecorationTheme: _inputDecorationTheme(palette: Palette.dark),
       iconTheme: _iconTheme(palette: Palette.dark),
       appBarTheme: _appBarTheme(palette: Palette.dark),
+      listTileTheme: _listTileTheme(palette: Palette.dark),
     );
   }
 
@@ -54,6 +55,7 @@ class AppTheme {
       inputDecorationTheme: _inputDecorationTheme(palette: Palette.light),
       iconTheme: _iconTheme(palette: Palette.light),
       appBarTheme: _appBarTheme(palette: Palette.light),
+      listTileTheme: _listTileTheme(palette: Palette.light),
     );
   }
 
@@ -197,5 +199,9 @@ class AppTheme {
       elevation: 0,
       iconTheme: _iconTheme(palette: palette),
     );
+  }
+
+  static ListTileThemeData _listTileTheme({required PaletteTheme palette}) {
+    return ListTileThemeData();
   }
 }

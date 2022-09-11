@@ -34,10 +34,9 @@ class _DashboardDrawerState extends State<DashboardDrawer> {
               ],
             ),
           ),
-          // const SizedBox(height: 14),
           DrawerListTile(
             title: 'All Items',
-            leading: Icons.list_rounded,
+            leading: Icons.apps_rounded,
             onTap: () {},
           ),
         ],

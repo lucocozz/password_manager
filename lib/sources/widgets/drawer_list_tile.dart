@@ -20,9 +20,11 @@ class _DrawerListTileState extends State<DrawerListTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: widget.onTap,
+      contentPadding: const EdgeInsets.symmetric(horizontal: 24),
       leading: Icon(widget.leading),
       title: Text(widget.title!),
-      onTap: widget.onTap,
+      horizontalTitleGap: 0,
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dargon2_flutter/dargon2_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:password_manager/sources/routes/router.gr.dart';
-import 'package:password_manager/sources/services/crypto/hash_md5.dart';
 
 import '../models/providers.model.dart';
 import '../widgets/password_field.widget.dart';
@@ -70,10 +70,13 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 height: 52,
                 child: ElevatedButton(
                   child: const Text("Unlock Manager"),
-                  onPressed: () {
+                  onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       ref.read(masterPasswordProvider.notifier).state =
-                          hashMD5(_passwordController.text);
+                          await argon2.hashPasswordString(
+                        _passwordController.text,
+                        salt: Salt.newSalt(),
+                      );
                       context.router.push(const DashboardRouter());
                     }
                   },

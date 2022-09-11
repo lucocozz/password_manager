@@ -89,9 +89,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                         context.router.push(const DashboardRouter());
                       }
                     },
-                    child: const Text(
-                      "Continue",
-                    ),
+                    child: const Text("Continue"),
                   ),
                 )
               ],
