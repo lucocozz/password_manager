@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:password_manager/sources/widgets/wip_snackbar.dart';
 
 import 'drawer_list_tile.dart';
 
@@ -22,12 +23,16 @@ class _DashboardDrawerState extends State<DashboardDrawer> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    wipSnackBar(context);
+                  },
                   icon: const Icon(Icons.more_vert),
                   splashRadius: 20,
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    wipSnackBar(context);
+                  },
                   icon: const Icon(Icons.settings),
                   splashRadius: 20,
                 )
@@ -36,8 +41,10 @@ class _DashboardDrawerState extends State<DashboardDrawer> {
           ),
           DrawerListTile(
             title: 'All Items',
-            leading: Icons.apps_rounded,
-            onTap: () {},
+            leading: Icons.list_rounded,
+            onTap: () {
+              wipSnackBar(context);
+            },
           ),
         ],
       ),

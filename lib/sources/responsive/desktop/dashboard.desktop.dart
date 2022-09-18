@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:password_manager/sources/widgets/dashboard_drawer.widget.dart';
+import 'package:password_manager/sources/widgets/wip_snackbar.dart';
 
 class DashboardDesktop extends StatefulWidget {
   const DashboardDesktop({super.key});
@@ -18,7 +19,9 @@ class _DashboardDesktopState extends State<DashboardDesktop> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          wipSnackBar(context);
+        },
         child: const Icon(Icons.add),
       ),
     );

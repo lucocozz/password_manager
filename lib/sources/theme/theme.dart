@@ -29,6 +29,9 @@ class AppTheme {
       iconTheme: _iconTheme(palette: Palette.dark),
       appBarTheme: _appBarTheme(palette: Palette.dark),
       listTileTheme: _listTileTheme(palette: Palette.dark),
+      floatingActionButtonTheme: _floatingActionButtonTheme(
+        palette: Palette.dark,
+      ),
     );
   }
 
@@ -56,6 +59,9 @@ class AppTheme {
       iconTheme: _iconTheme(palette: Palette.light),
       appBarTheme: _appBarTheme(palette: Palette.light),
       listTileTheme: _listTileTheme(palette: Palette.light),
+      floatingActionButtonTheme: _floatingActionButtonTheme(
+        palette: Palette.light,
+      ),
     );
   }
 
@@ -85,8 +91,8 @@ class AppTheme {
       backgroundColor: palette.primary,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(25),
-          topRight: Radius.circular(25),
+          topLeft: Radius.circular(10),
+          topRight: Radius.circular(10),
         ),
       ),
     );
@@ -144,7 +150,7 @@ class AppTheme {
       style: ButtonStyle(
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(25)),
+            borderRadius: BorderRadius.all(Radius.circular(5)),
           ),
         ),
         backgroundColor: MaterialStateProperty.all<Color>(palette.secondary),
@@ -202,6 +208,18 @@ class AppTheme {
   }
 
   static ListTileThemeData _listTileTheme({required PaletteTheme palette}) {
-    return ListTileThemeData();
+    return const ListTileThemeData();
+  }
+
+  static FloatingActionButtonThemeData _floatingActionButtonTheme({
+    required PaletteTheme palette,
+  }) {
+    return FloatingActionButtonThemeData(
+      backgroundColor: palette.secondary,
+      foregroundColor: palette.onSecondary,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+    );
   }
 }
