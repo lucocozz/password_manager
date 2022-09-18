@@ -66,8 +66,8 @@ class _SignInPageState extends ConsumerState<SignInPage> {
               ),
               const SizedBox(height: 16),
               SizedBox(
-                width: 352,
-                height: 52,
+                width: 350,
+                height: 48,
                 child: ElevatedButton(
                   child: const Text("Unlock Manager"),
                   onPressed: () {
