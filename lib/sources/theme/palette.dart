@@ -18,6 +18,9 @@ class PaletteTheme {
   final Color iconColor;
   final Color unfocusIconColor;
   final Color baseStrengthIndicator;
+  final Color unselectedTextColor;
+  final Color selectedTileColor;
+  final Color expensionTileColor;
 
   PaletteTheme({
     required this.primary,
@@ -37,6 +40,9 @@ class PaletteTheme {
     required this.iconColor,
     required this.unfocusIconColor,
     required this.baseStrengthIndicator,
+    required this.unselectedTextColor,
+    required this.selectedTileColor,
+    required this.expensionTileColor,
   });
 }
 
@@ -67,6 +73,9 @@ class Palette {
     iconColor: Colors.white70,
     unfocusIconColor: const Color(0xff6a6d72),
     baseStrengthIndicator: Colors.white,
+    unselectedTextColor: Colors.white70,
+    selectedTileColor: Colors.white12,
+    expensionTileColor: Colors.white54,
   );
 
   static final light = PaletteTheme(
@@ -87,5 +96,8 @@ class Palette {
     iconColor: Colors.black87,
     unfocusIconColor: const Color(0xffCED5DF),
     baseStrengthIndicator: const Color(0xffC6CDD9),
+    unselectedTextColor: Colors.black87,
+    selectedTileColor: Colors.black12,
+    expensionTileColor: Colors.black38,
   );
 }

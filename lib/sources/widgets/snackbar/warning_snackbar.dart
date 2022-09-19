@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void wipSnackBar(BuildContext context) {
+void warningSnackBar(BuildContext context, String? message) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
     content: Row(
       children: [
@@ -11,7 +11,7 @@ void wipSnackBar(BuildContext context) {
           child: const Icon(Icons.warning_amber_rounded, color: Colors.black),
         ),
         const SizedBox(width: 8),
-        const Text("Work in progress", style: TextStyle(color: Colors.black)),
+        Text(message!, style: const TextStyle(color: Colors.black)),
       ],
     ),
     duration: const Duration(seconds: 2),

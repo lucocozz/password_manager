@@ -32,6 +32,7 @@ class AppTheme {
       floatingActionButtonTheme: _floatingActionButtonTheme(
         palette: Palette.dark,
       ),
+      expansionTileTheme: _expansionTileTheme(palette: Palette.dark),
     );
   }
 
@@ -62,6 +63,7 @@ class AppTheme {
       floatingActionButtonTheme: _floatingActionButtonTheme(
         palette: Palette.light,
       ),
+      expansionTileTheme: _expansionTileTheme(palette: Palette.light),
     );
   }
 
@@ -208,7 +210,13 @@ class AppTheme {
   }
 
   static ListTileThemeData _listTileTheme({required PaletteTheme palette}) {
-    return const ListTileThemeData();
+    return ListTileThemeData(
+      dense: true,
+      textColor: palette.unselectedTextColor,
+      selectedColor: palette.primaryTextColor,
+      selectedTileColor: palette.selectedTileColor,
+      horizontalTitleGap: 0,
+    );
   }
 
   static FloatingActionButtonThemeData _floatingActionButtonTheme({
@@ -220,6 +228,17 @@ class AppTheme {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
+    );
+  }
+
+  static ExpansionTileThemeData _expansionTileTheme({
+    required PaletteTheme palette,
+  }) {
+    return ExpansionTileThemeData(
+      collapsedTextColor: palette.expensionTileColor,
+      textColor: palette.expensionTileColor,
+      collapsedIconColor: palette.expensionTileColor,
+      iconColor: palette.expensionTileColor,
     );
   }
 }
