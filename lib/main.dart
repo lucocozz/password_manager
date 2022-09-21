@@ -11,6 +11,8 @@ import 'package:uuid/uuid.dart';
 
 import 'sources/theme/theme.dart';
 
+const String kVersion = "Version 0.0.0";
+
 void main() async {
   await Hive.initFlutter();
   DArgon2Flutter.init();
@@ -43,10 +45,10 @@ class MyApp extends StatelessWidget {
         builder: (context, widget) => ResponsiveWrapper.builder(
           ClampingScrollWrapper.builder(context, widget!),
           breakpoints: const [
-            ResponsiveBreakpoint.resize(350, name: MOBILE),
-            ResponsiveBreakpoint.autoScale(600, name: TABLET),
-            ResponsiveBreakpoint.resize(900, name: DESKTOP),
-            ResponsiveBreakpoint.autoScale(1700, name: 'XL'),
+            ResponsiveBreakpoint.resize(480, name: MOBILE),
+            ResponsiveBreakpoint.resize(800, name: TABLET),
+            ResponsiveBreakpoint.resize(1000, name: DESKTOP),
+            ResponsiveBreakpoint.autoScale(2460, name: 'XL'),
           ],
         ),
         theme: theme,

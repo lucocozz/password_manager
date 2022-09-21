@@ -45,12 +45,12 @@ class _PasswordFieldState extends State<PasswordField> {
             suffixIcon: IconButton(
               icon: Icon(
                 _obscureText
-                    ? Icons.visibility_outlined
-                    : Icons.visibility_off_outlined,
+                    ? Icons.visibility_rounded
+                    : Icons.visibility_off_rounded,
               ),
               onPressed: () => setState(() => _obscureText = !_obscureText),
               splashRadius: 1,
-              padding: const EdgeInsets.only(right: 8),
+              padding: const EdgeInsets.only(right: 14),
             ),
           ),
           keyboardType: TextInputType.visiblePassword,

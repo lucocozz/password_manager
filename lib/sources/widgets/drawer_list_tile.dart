@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 class DrawerListTile extends StatefulWidget {
   final String? title;
   final Icon? leading;
-  final void Function()? onTap;
+  final bool? selected;
+  final VoidCallback? onTap;
 
   const DrawerListTile({
     Key? key,
     this.title,
     this.leading,
+    this.selected,
     this.onTap,
   }) : super(key: key);
 
@@ -17,14 +19,12 @@ class DrawerListTile extends StatefulWidget {
 }
 
 class _DrawerListTileState extends State<DrawerListTile> {
-  bool selected = false;
-
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Visibility(
-          visible: selected,
+          visible: widget.selected!,
           child: Container(
             width: 4,
             height: 40,
@@ -32,13 +32,10 @@ class _DrawerListTileState extends State<DrawerListTile> {
           ),
         ),
         ListTile(
-          selected: selected,
+          selected: widget.selected!,
           leading: widget.leading,
           title: Text(widget.title!, style: const TextStyle(fontSize: 16)),
-          onTap: () {
-            // widget.onTap;
-            setState(() => selected = !selected);
-          },
+          onTap: widget.onTap,
         ),
       ],
     );

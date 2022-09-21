@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:password_manager/sources/widgets/dashboard_drawer.widget.dart';
+import 'package:password_manager/sources/pages/dashboard/widget/dashboard_drawer.widget.dart';
 
 class DashboardMobile extends StatefulWidget {
   const DashboardMobile({super.key});

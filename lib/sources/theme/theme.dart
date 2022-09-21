@@ -33,6 +33,8 @@ class AppTheme {
         palette: Palette.dark,
       ),
       expansionTileTheme: _expansionTileTheme(palette: Palette.dark),
+      popupMenuTheme: _popupMenuTheme(palette: Palette.dark),
+      tooltipTheme: _tooltipTheme(palette: Palette.dark),
     );
   }
 
@@ -64,6 +66,8 @@ class AppTheme {
         palette: Palette.light,
       ),
       expansionTileTheme: _expansionTileTheme(palette: Palette.light),
+      popupMenuTheme: _popupMenuTheme(palette: Palette.light),
+      tooltipTheme: _tooltipTheme(palette: Palette.light),
     );
   }
 
@@ -165,8 +169,8 @@ class AppTheme {
     required PaletteTheme palette,
   }) {
     return InputDecorationTheme(
-      fillColor: palette.inputColor,
       filled: true,
+      fillColor: palette.inputColor,
       enabledBorder: const OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(5)),
         borderSide: BorderSide.none,
@@ -181,7 +185,7 @@ class AppTheme {
       errorBorder: OutlineInputBorder(
         borderRadius: const BorderRadius.all(Radius.circular(5)),
         borderSide: BorderSide(
-          color: palette.error.withOpacity(0.60),
+          color: palette.error.withOpacity(1),
         ),
       ),
       border: const OutlineInputBorder(),
@@ -239,6 +243,28 @@ class AppTheme {
       textColor: palette.expensionTileColor,
       collapsedIconColor: palette.expensionTileColor,
       iconColor: palette.expensionTileColor,
+    );
+  }
+
+  static PopupMenuThemeData _popupMenuTheme({required PaletteTheme palette}) {
+    return PopupMenuThemeData(
+      color: palette.primaryShade,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(5)),
+      ),
+    );
+  }
+
+  static TooltipThemeData _tooltipTheme({required PaletteTheme palette}) {
+    return TooltipThemeData(
+      decoration: BoxDecoration(
+        color: palette.primaryAccent,
+        borderRadius: const BorderRadius.all(Radius.circular(5)),
+      ),
+      textStyle: GoogleFonts.lato(
+        color: palette.primaryTextColor,
+        fontSize: 12,
+      ),
     );
   }
 }

@@ -6,7 +6,7 @@ import 'package:password_manager/sources/routes/router.gr.dart';
 
 import '../models/providers.model.dart';
 import '../widgets/password_field.widget.dart';
-import '../services/sign_up/check_master_password.service.dart';
+import 'sign_up/services/check_master_password.service.dart';
 
 class SignInPage extends StatefulHookConsumerWidget {
   const SignInPage({Key? key}) : super(key: key);

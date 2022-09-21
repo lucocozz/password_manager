@@ -4,8 +4,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:password_manager/sources/routes/router.gr.dart';
 import 'package:password_strength/password_strength.dart';
 
-import '../widgets/password_field.widget.dart';
-import '../services/sign_up/add_master_password.service.dart';
+import '../../widgets/password_field.widget.dart';
+import 'services/add_master_password.service.dart';
 
 class SignUpPage extends ConsumerStatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -80,8 +80,8 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                 ),
                 const SizedBox(height: 16),
                 SizedBox(
-                  width: 352,
-                  height: 52,
+                  width: 350,
+                  height: 48,
                   child: ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {

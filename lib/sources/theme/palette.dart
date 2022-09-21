@@ -48,30 +48,37 @@ class PaletteTheme {
 
 // https://maketintsandshades.com
 class Palette {
-  static const Color cherry = Color(0xffd42a78);
-  static const Color purpleHeart = Color(0xff562ad4);
-  static const Color pelorous = Color(0xff2AB0C2);
-  static const Color malachite = Color(0xff24BE33);
-  static const Color goldenGrass = Color(0xffD4AF2A);
-  static const Color punch = Color(0xffD43E2A);
+  // secondary palette https://coolors.co/d99f00-d24503-d91b74-6714da-0084ff-3fbd15
+  static const Color goldenRod = Color(0xffD99F00);
+  static const Color sinopia = Color(0xffD24503);
+  static const Color redPurple = Color(0xffD91B74);
+  static const Color hanPurple = Color(0xff6714DA);
+  static const Color azure = Color(0xff0084FF);
+  static const Color kellyGreen = Color(0xff3FBD15);
+
+  // dark palette https://coolors.co/101219-1f2533-333946-464b57
+  static const Color richBlackForga29 = Color(0xff101219);
+  static const Color raisinBlack = Color(0xff1F2533);
+  static const Color gunmetal = Color(0xff333946);
+  static const Color charcoal = Color(0xff464B57);
 
   static final dark = PaletteTheme(
-    primary: const Color(0xff383C43),
-    primaryShade: const Color(0xff282d34),
-    primaryAccent: const Color(0xff6a6d72),
+    primary: gunmetal,
+    primaryShade: raisinBlack,
+    primaryAccent: charcoal,
     onPrimary: Colors.white,
-    secondary: cherry,
+    secondary: redPurple,
     onSecondary: Colors.white,
-    background: const Color(0xff282D34),
+    background: raisinBlack,
     onBackground: Colors.white,
     error: Colors.red,
     onError: Colors.white,
-    surface: const Color(0xff383C43),
+    surface: gunmetal,
     onSurface: Colors.white,
     primaryTextColor: Colors.white,
-    inputColor: const Color(0xff151922),
+    inputColor: richBlackForga29,
     iconColor: Colors.white70,
-    unfocusIconColor: const Color(0xff6a6d72),
+    unfocusIconColor: charcoal,
     baseStrengthIndicator: Colors.white,
     unselectedTextColor: Colors.white70,
     selectedTileColor: Colors.white12,
@@ -83,7 +90,7 @@ class Palette {
     primaryShade: Colors.white,
     primaryAccent: const Color(0xffCED5DF),
     onPrimary: Colors.black87,
-    secondary: cherry,
+    secondary: redPurple,
     onSecondary: Colors.white,
     background: Colors.white,
     onBackground: Colors.black87,
